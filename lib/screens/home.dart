@@ -1,43 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:session7/constants/size_config.dart';
 
 import '../providers/user_provider.dart';
 
 class HomeScreen extends StatelessWidget {
 
+
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomeScreen'),
+        title:  Text(SizeConfig.screenWidth.toString()),
       ),
       body: Center(
-          child: Consumer<UserProvider>(
-            builder: (context, provider, child) {
-              return Column(
-                  children: [
-                    CupertinoSwitch(
-                      onChanged: (value) {
-                        provider.toggleScreen();
-                      },
-                      value: provider.isDark,
-                    ),
-                    SizedBox(
-                      height: 80,
-                    ),
-                    Text("Hi ${provider.userName}"),
-                    TextField(
-                      onChanged: (value){
-                        provider.userName=value;
-                      },
-                    )
+          child: Container(
+            width: SizeConfig.horizontalBlock*150,
+            height: SizeConfig.verticalBlock*150,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(50)
 
-
-
-                  ]
-              );
-            },
+            ),
           )
       ),
     );

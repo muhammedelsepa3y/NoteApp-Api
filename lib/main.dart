@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'constants/size_config.dart';
 import 'providers/notes_provider.dart';
 import 'providers/user_provider.dart';
 import 'screens/home.dart';
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
-          home: NotesScreen(),
+          home: HomeScreen(),
 
         )
     );
